@@ -4,8 +4,15 @@
     <title>Living Verification Documents</title>
     <link>https://proofworks.cc</link>
     <description>A shared collection of resources for AI verification researchers</description>
-    <lastBuildDate>Sat, 24 Jan 2026 03:36:51 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 01 May 2026 13:46:55 GMT</lastBuildDate>
     <atom:link href="https://proofworks.cc/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Off-Chip Compute Verification</title>
+      <link>https://docs.google.com/document/d/10317woljRRoX9Gtcwir1u36ytbA680xfYrazMcuLisA/edit?usp=sharing</link>
+      <description>A retrofittable system for verifying AI training and inference at data centers via off-chip devices (network taps, analog sensors, memory pingers), with a companion security analysis against nation-state adversaries.</description>
+      <pubDate>Fri, 01 May 2026 13:46:55 GMT</pubDate>
+      <guid isPermaLink="true">https://docs.google.com/document/d/10317woljRRoX9Gtcwir1u36ytbA680xfYrazMcuLisA/edit?usp=sharing</guid>
+    </item>
     <item>
       <title>Compute transparency via verifiable memory exhaustion</title>
       <link>https://www.notion.so/Compute-transparency-via-verifiable-memory-exhaustion-27f60f987af080219c08f36894cf4e31</link>
@@ -79,7 +86,7 @@
     <item>
       <title>Verification MVP overview and updates - 10-23-25</title>
       <link>https://docs.google.com/document/d/1D6pZe8hw1bhWPi_taEpHzLVgNAcbwtUusQ6qttXJE7s/edit?tab=t.emeoo4hgmrke</link>
-      <description>A minimum viable product design for AI treaty verification with an update on the state of affairs.</description>
+      <description>[Superseded by &quot;Off-Chip Compute Verification&quot;.] A minimum viable product design for AI treaty verification with an update on the state of affairs.</description>
       <pubDate>Fri, 23 Jan 2026 14:50:22 GMT</pubDate>
       <guid isPermaLink="true">https://docs.google.com/document/d/1D6pZe8hw1bhWPi_taEpHzLVgNAcbwtUusQ6qttXJE7s/edit?tab=t.emeoo4hgmrke</guid>
     </item>

@@ -1,5 +1,29 @@
 [
   {
+    "title": "Off-Chip Compute Verification",
+    "url": "https://docs.google.com/document/d/10317woljRRoX9Gtcwir1u36ytbA680xfYrazMcuLisA/edit?usp=sharing",
+    "platform": "google-docs",
+    "author": [
+      "Mauricio Baker",
+      "Anjay Friedman",
+      "Daniel Reuter",
+      "Ben Harack"
+    ],
+    "description": "A retrofittable system for verifying AI training and inference at data centers via off-chip devices (network taps, analog sensors, memory pingers), with a companion security analysis against nation-state adversaries.",
+    "tags": [
+      "hardware",
+      "software",
+      "firmware",
+      "human-process",
+      "technical-paper",
+      "explainer",
+      "strategy",
+      "research-agenda"
+    ],
+    "order": 270,
+    "date_added": "2026-05-01T13:45:54.140Z"
+  },
+  {
     "title": "Compute transparency via verifiable memory exhaustion",
     "url": "https://www.notion.so/Compute-transparency-via-verifiable-memory-exhaustion-27f60f987af080219c08f36894cf4e31",
     "platform": "notion",
@@ -128,7 +152,7 @@
     "url": "https://docs.google.com/document/d/1D6pZe8hw1bhWPi_taEpHzLVgNAcbwtUusQ6qttXJE7s/edit?tab=t.emeoo4hgmrke",
     "platform": "google-docs",
     "author": "Mauricio Baker",
-    "description": "A minimum viable product design for AI treaty verification with an update on the state of affairs.",
+    "description": "[Superseded by \"Off-Chip Compute Verification\".] A minimum viable product design for AI treaty verification with an update on the state of affairs.",
     "tags": [
       "hardware",
       "software",
