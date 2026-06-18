@@ -8,7 +8,7 @@
   "use strict";
   const CFG = window.PW_CONFIG || {};
   const TOTAL = 100;
-  const CUSTOM_COLOR = "#6E6A60";           // colour for user-added "Your additions"
+  const CUSTOM_COLOR = "#59A14F";           // colour for user-added "Your additions"
   const groups = window.PW_GROUPS || [];
   const groupIds = groups.map(g => g.id);
   const groupColor = id => (groups.find(g => g.id === id) || {}).color || CUSTOM_COLOR;
@@ -39,6 +39,7 @@
   const submitBtn = $("#submit"), ctaText = $("#ctatext"), errEl = $("#err");
   const form = $("#form"), nameEl = $("#name"), emailEl = $("#email"), reasoningEl = $("#reasoning");
   const doneEl = $("#done"), builderEl = $("#builder"), doneMsgEl = $("#doneMsg");
+  const heroEl = document.querySelector(".hero"), footerEl = document.querySelector("footer");
 
   // ── Build 100 dots ──
   const dots = [];
@@ -102,6 +103,9 @@
       setVal(cat.id, typed);
     };
     input.onblur = () => { input.value = alloc[cat.id]; clearCap(); };
+    // Don't let the mouse wheel nudge a focused number field while scrolling the
+    // page — blur it so the wheel scrolls the page instead of changing the value.
+    input.addEventListener("wheel", () => input.blur(), { passive: true });
     // clear the field on focus — a blank box with a blinking cursor invites
     // typing; if nothing is typed, blur restores the previous value
     input.onfocus = () => { prevVal = alloc[cat.id]; input.value = ""; };
@@ -354,10 +358,12 @@
   function showDone(email) {
     builderEl.classList.add("hidden");
     $("#sticky").classList.add("hidden");
+    heroEl.classList.add("hidden");
+    footerEl.classList.add("hidden");
     doneMsgEl.innerHTML = DEMO
-      ? "Your picks are recorded. <em>(Demo mode &mdash; no email sent.)</em>"
+      ? "Your picks are recorded. <em>(Demo mode: no email sent.)</em>"
       : "We&rsquo;ve emailed <strong>" + escapeHtml(maskEmail(email)) +
-        "</strong> a link to confirm your entry. It only counts once you click it.";
+        "</strong> a link you need to click to confirm your choices.";
     doneEl.classList.add("show");
     doneEl.scrollIntoView({ behavior: "smooth" });
   }
@@ -366,6 +372,8 @@
     doneEl.classList.remove("show");
     builderEl.classList.remove("hidden");
     $("#sticky").classList.remove("hidden");
+    heroEl.classList.remove("hidden");
+    footerEl.classList.remove("hidden");
     submitBtn.classList.remove("loading");
     if (window.turnstile) window.turnstile.reset();   // fresh single-use token for a re-submit
     update();

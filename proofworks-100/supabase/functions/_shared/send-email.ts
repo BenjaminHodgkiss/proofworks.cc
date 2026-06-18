@@ -4,7 +4,7 @@
 // the root tree. RESEND_API_KEY must be set as a secret on THIS project
 // (ekyzrnhoxutcnnqrvszp), and the proofworks.cc sender domain verified in Resend.
 
-const FROM_ADDRESS = 'Proofworks 100 Experts <updates@proofworks.cc>'
+const FROM_ADDRESS = '100 experts exercise <updates@proofworks.cc>'
 
 interface SendEmailOptions {
   to: string

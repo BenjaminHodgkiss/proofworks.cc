@@ -120,6 +120,14 @@ When creating, moving, renaming, or deleting markdown files or folders, update t
 
 Keep changes minimal and focused. Only modify what's directly requested—don't add unrequested features, refactor surrounding code, or add "just in case" error handling. Trust internal code; only validate at system boundaries. Prefer three similar lines over a premature abstraction.
 
+## Front-End Design
+
+Hold all front-end work to a modern, production-quality bar by default — this is expected on every task, not something the user should have to ask for.
+
+- **Apply current UI/UX principles and norms.** Clear visual hierarchy with one focal point per screen, generous and consistent spacing, a restrained type scale, deliberate alignment and whitespace, accessible contrast and visible focus states, sensible responsive behaviour, and motion that serves a purpose. Common screens (confirmation/success, empty, error, loading, form validation) have well-established patterns — match them rather than inventing weaker ones.
+- **Critically review every front-end change before calling it done.** Look at the actual rendered result (screenshot it / open it), not just the diff. Judge it as a designer would and fix what's off — misalignment, a stray element bleeding through, cramped or uneven spacing, broken hierarchy — before finishing. Shipping the first thing that "works" is not done.
+- **Search the web freely.** When a task touches visual design, established UX patterns, or anything that might have a current best practice, look it up. Reaching for up-to-date references is the default, not a last resort.
+
 ## Task Persistence
 
 Do not stop tasks early due to context window concerns - the context is automatically compacted to allow continued work. Complete tasks fully rather than artificially truncating work. If a task is genuinely too large for a single session, break it into discrete, committable chunks rather than leaving work in an incomplete state.

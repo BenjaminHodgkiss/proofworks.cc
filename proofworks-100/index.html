@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex, nofollow" />
-<title>100 Experts · Proofworks</title>
+<title>100 experts · Proofworks</title>
 <meta name="description" content="If you could put 100 experts to work full-time on AI verification, who would you pick? A community exercise by Proofworks." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,10 +67,16 @@ h1{
   font-size:clamp(2.5rem,6vw,4.6rem);line-height:1.02;letter-spacing:-.02em;margin:0 0 .35em;
   font-optical-sizing:auto;
 }
-h1 em{font-style:italic;color:var(--accent)}
+h1 em{font-style:normal;color:var(--accent)}
 .lede{font-size:clamp(1.05rem,1.6vw,1.28rem);color:var(--ink-soft);max-width:620px;margin:0}
 .lede .who{color:var(--ink);font-weight:600}
-
+.consider{max-width:620px;margin:22px 0 0}
+.consider-h{font-size:clamp(.98rem,1.35vw,1.08rem);color:var(--ink);font-weight:600;margin:0 0 11px}
+.consider ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+.consider li{position:relative;padding-left:24px;color:var(--ink-soft);font-size:clamp(.98rem,1.35vw,1.08rem);line-height:1.5}
+.consider li::before{content:"";position:absolute;left:5px;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--accent);opacity:.7}
+.consider li b{color:var(--ink);font-weight:600}
+.consider-note{margin:18px 0 0;color:var(--ink-soft);font-size:clamp(.98rem,1.35vw,1.08rem);line-height:1.55}
 /* staggered hero reveal */
 .reveal{opacity:0;transform:translateY(14px);animation:rise .9s var(--ease) forwards}
 .reveal.d1{animation-delay:.05s}.reveal.d2{animation-delay:.16s}.reveal.d3{animation-delay:.28s}.reveal.d4{animation-delay:.4s}
@@ -223,7 +229,7 @@ h1 em{font-style:italic;color:var(--accent)}
 
 /* ── Done / acknowledgement ── */
 .done{display:none;margin:48px 0 70px}
-.done.show{display:block;animation:rise .8s var(--ease)}
+.done.show{display:flex;align-items:center;justify-content:center;min-height:70vh;animation:rise .8s var(--ease)}
 .donecard{max-width:520px;margin:0 auto;text-align:center;background:var(--white);border:1px solid var(--line);
   border-radius:var(--radius);box-shadow:var(--shadow-md);padding:40px}
 .donecard .badge{width:54px;height:54px;border-radius:50%;background:var(--accent);color:#FCFAF4;
@@ -257,7 +263,18 @@ footer a{color:var(--ink-soft);text-decoration:none}footer a:hover{color:var(--a
 <div class="wrap">
   <header class="hero">
     <h1 class="reveal d2">If you could choose <em>100&nbsp;experts</em> to work full-time on AI&nbsp;verification, who would you pick?</h1>
-    <p class="lede reveal d3">You can magically bring <span class="who">100 people</span> into the AI verification field and they magically have an org to hire them full time. Who do you pick?<br><br>You can add types that aren't already listed. I'm keen to read your reasoning, but it's not required to submit your choices.</p>
+    <p class="lede reveal d3">You can magically bring <span class="who">100 people</span> into the AI verification field. Who do you pick?</p>
+    <div class="consider reveal d4">
+      <p class="consider-h">Things to consider</p>
+      <ul>
+        <li>You are prioritising just the <b>next 12 months</b>. In exactly 12 months, you'll be able to magic another 100 and you'll get a chance to make all new choices.</li>
+        <li>There are high-performing organisations ready to hire them, whose missions align with the AI verification community's and whose strategies are sound.</li>
+        <li>The teams they join let them flourish and work close to the best of their personal ability.</li>
+        <li>Each person's best is itself at a high level; they are among the strongest in their field.</li>
+        <li>They'll work full time at salaries they will be happy with.</li>
+      </ul>
+      <p class="consider-note">You can add expert types that aren't already listed at the bottom. I'm keen to read your reasoning, so I encourage you to explain your choices, but it's not required.</p>
+    </div>
   </header>
 </div>
 
@@ -304,7 +321,7 @@ footer a{color:var(--ink-soft);text-decoration:none}footer a:hover{color:var(--a
     <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" style="margin:.25rem 0;"></div>
     <button class="cta" id="submit" type="submit" disabled><span class="spin"></span><span id="ctatext">Place 100 to submit</span></button>
     <p class="err" id="err"></p>
-    <p class="note">Your email is used to recognise your entry and may be used to weight responses by expertise during analysis. It is never shown publicly or shared, and your choices won't be shared with anyone. We'll email you a link to confirm your entry — it only counts once you click it. Re-submitting records a new response; only your most recent is kept.</p>
+    <p class="note">Your email is never shown publicly or shared, and your individual choices won't be shared with anyone. You will be emailed a link to confirm them, and they only count once you click it. If you submit more than once, only your most recent confirmed choices are kept.</p>
   </form>
 </main>
 
@@ -312,9 +329,9 @@ footer a{color:var(--ink-soft);text-decoration:none}footer a:hover{color:var(--a
 <section class="wrap done" id="done">
   <div class="donecard">
     <div class="badge" aria-hidden="true">&#10003;</div>
-    <h2>Thanks for your picks</h2>
+    <h2>Thank you</h2>
     <p class="donemsg" id="doneMsg"></p>
-    <button class="again" id="again">&larr; Adjust my answer</button>
+    <button class="again" id="again">&larr; Adjust my choices</button>
   </div>
 </section>
 

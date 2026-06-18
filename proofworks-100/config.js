@@ -16,7 +16,7 @@ window.PW_CONFIG = {
   // Bump this whenever you change PW_CATEGORIES / PW_GROUPS below. It is stored
   // with each submission (meta.catalog_version) so analysis can tell which
   // category revision a respondent saw. Any short stable string works.
-  CATALOG_VERSION: "2026-06-17",
+  CATALOG_VERSION: "2026-06-18b",
 };
 
 // ─────────────────────────────────────────────────────────────
@@ -32,7 +32,7 @@ window.PW_GROUPS = [
   { id: "protocols",   name: "Protocols, proofs, assurance & red-teaming",          color: "#B07AA1" },
   { id: "buildrun",    name: "Building, testing & running the system",              color: "#9C755F" },
   { id: "aiml",        name: "AI/ML expertise",                                     color: "#E15759" },
-  { id: "darkcompute", name: "Dark-compute detection",                              color: "#59A14F" },
+  { id: "darkcompute", name: "Dark-compute detection",                              color: "#5E5A50" },
   { id: "governance",  name: "Governance, diplomacy & law",                         color: "#EDC948" },
 ];
 
@@ -46,7 +46,7 @@ window.PW_CATEGORIES = [
   { id: "fpga",        group: "hwdesign",    name: "FPGA engineers",                                 blurb: "Reconfigurable logic running a fixed, constrained function; simpler to inspect." },
   { id: "fab",         group: "hwdesign",    name: "Semiconductor fab engineers",                    blurb: "Process integration, lithography, device fabrication; how chips are made." },
   { id: "firmware",    group: "hwdesign",    name: "Embedded/firmware & trusted-software engineers",blurb: "The firmware and trusted software stack on the verification devices, above the hardware roots of trust." },
-  { id: "hweng",       group: "hwdesign",    name: "Hardware engineers (non-semiconductor)",         blurb: "Board, electronics and device engineers who turn components into working prototypes and verification devices." },
+  { id: "hweng",       group: "hwdesign",    name: "Systems integrators",                            blurb: "Engineers who turn components into working prototypes and verification devices." },
 
   // 2 · Hardware security, inspection & supply-chain integrity
   { id: "antitamper",  group: "hwsec",       name: "Anti-tamper engineers",                          blurb: "Enclosures that resist tampering or reveal if hardware was opened." },
@@ -57,7 +57,7 @@ window.PW_CATEGORIES = [
   { id: "supplysec",   group: "hwsec",       name: "Supply-chain experts: Security",                blurb: "Provenance and integrity of the verification devices before deployment." },
 
   // 3 · Infrastructure & monitoring
-  { id: "dcsec",       group: "infra",       name: "Physical & operational security experts",        blurb: "Physical and operational security of the facilities running AI compute: access control, monitoring, insider threat, accredited secure-facility build (e.g. SCIFs: TEMPEST and acoustic shielding) and how accreditation requirements get updated." },
+  { id: "dcsec",       group: "infra",       name: "Physical & operational security experts",        blurb: "Physical and operational security of the facilities running AI compute: access control, monitoring, insider threat, accredited secure-facility build and how accreditation requirements get updated." },
   { id: "dcops",       group: "infra",       name: "Data-centre builders & operators",               blurb: "Built, networked, powered and run large clusters; judge what's operationally feasible." },
   { id: "neteng",      group: "infra",       name: "Networking/optical-networking engineers",      blurb: "Line-rate capture, fibre splitters/taps, traffic analysis, egress control." },
 
@@ -68,12 +68,14 @@ window.PW_CATEGORIES = [
   { id: "tcb",         group: "protocols",   name: "Secure-systems-architecture/minimal-TCB experts", blurb: "Shrinking the trusted core so it's small enough to audit or formally verify." },
   { id: "stats",       group: "protocols",   name: "Statisticians (sampling/statistical safeguards)", blurb: "Sampling and sequential-test design with explicit detection-probability targets." },
   { id: "stpa",        group: "protocols",   name: "Systems-theoretic safety/security analysis",     blurb: "STPA-Sec-style top-down derivation of security requirements and loss scenarios." },
+  { id: "seceng",      group: "protocols",   name: "Security Engineer",                              blurb: "Engineers who try to improve the security of a system (typically focused on software/cyber security)." },
 
   // 5 · Building, testing & running the system
   { id: "integration", group: "buildrun",    name: "Systems integration engineers",                  blurb: "Making the devices, firmware, taps, cluster and protocols work together as one deployable system." },
   { id: "tev",         group: "buildrun",    name: "Test & evaluation/independent V&V engineers",  blurb: "Independent test and acceptance campaigns, proving the system hits its detection-probability targets in practice." },
   { id: "opssustain",  group: "buildrun",    name: "Operations & sustainment/lifecycle leads",     blurb: "Running the deployed system for decades; maintenance, key rotation, recalibration, hardware refresh, decommissioning." },
   { id: "techpm",      group: "buildrun",    name: "Technical project managers",                     blurb: "Orchestrating efforts that span more than one of these disciplines into a delivered system." },
+  { id: "syseng",      group: "buildrun",    name: "Systems Engineer",                               blurb: "Engineers who think about how the complete (verification) system looks like, what the requirements are, what the interfaces are, which functions are on track and which functions need more focus." },
 
   // 6 · AI/ML expertise
   { id: "evals",       group: "aiml",        name: "Model evaluations, auditing, safety, control, and oversight experts",blurb: "Deciding which models to whitelist and designing the trusted oversight model." },

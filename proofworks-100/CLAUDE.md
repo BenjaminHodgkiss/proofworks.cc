@@ -53,7 +53,7 @@ On insert, `submit-experts` clears the email's prior pending row, stores the new
 
 - **Email = single source of truth:** `supabase/functions/_shared/confirmation-email.ts`. Written in **erasable-only TS** (type annotations only — no enums/namespaces) so the same file is imported by both the Deno function and `scripts/preview-email.mjs` (Node 22 strips the types on import). Don't add non-erasable TS to it. Pass `confirmUrl` to get the "Confirm my submission" CTA; omit it and the template falls back to the old receipt framing.
 - The `FIELDS` map in that file mirrors `config.js` `PW_GROUPS` (id → name + colour). Keep it in sync when you edit groups.
-- Sender is `Proofworks 100 Experts <updates@proofworks.cc>`; `proofworks.cc` must be a verified Resend domain on the account behind this project's `RESEND_API_KEY`.
+- Sender is `100 experts exercise <updates@proofworks.cc>`; `proofworks.cc` must be a verified Resend domain on the account behind this project's `RESEND_API_KEY`.
 - `confirm-submission` redirects to `SURVEY_URL` (default `https://proofworks.cc/100`); set the secret to match the real serve path or links 404.
 
 ## Notes

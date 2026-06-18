@@ -44,9 +44,9 @@ const FIELDS: Record<string, { name: string; color: string }> = {
   protocols:   { name: 'Protocols, proofs, assurance & red-teaming',  color: '#B07AA1' },
   buildrun:    { name: 'Building, testing & running the system',      color: '#9C755F' },
   aiml:        { name: 'AI / ML expertise',                           color: '#E15759' },
-  darkcompute: { name: 'Dark-compute detection',                      color: '#59A14F' },
+  darkcompute: { name: 'Dark-compute detection',                      color: '#5E5A50' },
   governance:  { name: 'Governance, diplomacy & law',                 color: '#EDC948' },
-  custom:      { name: 'Your additions',                              color: '#6E6A60' },
+  custom:      { name: 'Your additions',                              color: '#59A14F' },
 }
 const FALLBACK_FIELD = { name: 'Other', color: '#8C887C' }
 
@@ -203,11 +203,11 @@ export function renderConfirmationEmail(input: ConfirmationInput): RenderedEmail
   const confirmUrl = input.confirmUrl
 
   const preheader = confirmUrl
-    ? 'One quick step: confirm your entry so it counts. Your breakdown is inside.'
-    : "Your picks for AI verification are in — here's the breakdown, and a link to revise it."
+    ? 'One quick step: confirm your choices so they count. Your breakdown is inside.'
+    : "Your picks for AI verification are in. Here's the breakdown, and a link to revise it."
 
   const subject = confirmUrl
-    ? 'Confirm your 100 Experts submission'
+    ? 'Confirm your 100 experts choices'
     : '100 experts for AI verification'
 
   const html =
@@ -232,9 +232,9 @@ export function renderConfirmationEmail(input: ConfirmationInput): RenderedEmail
 
 // header / title
 '<tr><td class="pw-pad" style="padding:40px 40px 0;">' +
-'<div style="font:600 12px/1 ' + MONO + ';letter-spacing:.14em;text-transform:uppercase;color:' + C.accent + ';padding:0 0 18px;">100 Experts Exercise</div>' +
+'<div style="font:600 12px/1 ' + MONO + ';letter-spacing:.14em;text-transform:uppercase;color:' + C.accent + ';padding:0 0 18px;">100 experts exercise</div>' +
 '<h1 style="margin:0;font:500 32px/1.1 ' + SERIF + ';letter-spacing:-.02em;color:' + C.ink + ';">' + (confirmUrl ? 'Confirm your 100 experts.' : 'Your 100 experts are in.') + '</h1>' +
-'<p style="margin:14px 0 0;font:400 16px/1.55 ' + SANS + ';color:' + C.inkSoft + ';">' + (confirmUrl ? 'Thanks, ' + esc(firstName(input.name)) + '. Your picks are saved below — confirm them and your entry is recorded.' : 'Thanks, ' + esc(firstName(input.name)) + '. Here’s how you’d put 100 people to work full-time on AI verification.') + '</p>' +
+'<p style="margin:14px 0 0;font:400 16px/1.55 ' + SANS + ';color:' + C.inkSoft + ';">' + (confirmUrl ? 'Thanks, ' + esc(firstName(input.name)) + '. Your picks are below. Confirm them and your choices are recorded.' : 'Thanks, ' + esc(firstName(input.name)) + '. Here’s how you’d put 100 people to work full-time on AI verification.') + '</p>' +
 '</td></tr>' +
 
 // summary stat
@@ -258,11 +258,11 @@ export function renderConfirmationEmail(input: ConfirmationInput): RenderedEmail
 '<tr><td class="pw-pad" style="padding:26px 40px 40px;">' +
 '<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>' +
 '<td style="border-radius:10px;background:' + C.accent + ';">' +
-'<a href="' + esc(confirmUrl || surveyUrl) + '" style="display:inline-block;padding:13px 26px;font:600 15px ' + SANS + ';color:#FCFAF4;border-radius:10px;">' + (confirmUrl ? 'Confirm my submission &rarr;' : 'Adjust your answer &rarr;') + '</a>' +
+'<a href="' + esc(confirmUrl || surveyUrl) + '" style="display:inline-block;padding:13px 26px;font:600 15px ' + SANS + ';color:#FCFAF4;border-radius:10px;">' + (confirmUrl ? 'Confirm my submission &rarr;' : 'Adjust your choices &rarr;') + '</a>' +
 '</td></tr></table>' +
 (confirmUrl
-  ? '<p style="margin:16px 0 0;font:400 14px/1.5 ' + SANS + ';color:' + C.inkFaint + ';">Your entry isn’t recorded until you confirm, and the link expires in 7 days. Need to change something? <a href="' + esc(surveyUrl) + '" style="color:' + C.accent + ';text-decoration:underline;">Adjust your answer</a>.</p>'
-  : '<p style="margin:16px 0 0;font:400 14px/1.5 ' + SANS + ';color:' + C.inkFaint + ';">Changed your mind? You can revise and resubmit any time; only your most recent submission is considered.</p>') +
+  ? '<p style="margin:16px 0 0;font:400 14px/1.5 ' + SANS + ';color:' + C.inkFaint + ';">Your choices aren’t recorded until you confirm, and the link expires in 7 days. You can revise and resubmit any time; only your most recent confirmed choices are recorded.</p>'
+  : '<p style="margin:16px 0 0;font:400 14px/1.5 ' + SANS + ';color:' + C.inkFaint + ';">Changed your mind? You can revise and resubmit any time; only your most recent confirmed choices are recorded.</p>') +
 '</td></tr>' +
 
 '</table>' + // end card
@@ -270,7 +270,7 @@ export function renderConfirmationEmail(input: ConfirmationInput): RenderedEmail
 
 // ── Footer ──
 '<tr><td class="pw-pad" style="padding:26px 40px 0;">' +
-'<p style="margin:0;font:400 13px/1.6 ' + SANS + ';color:' + C.inkFaint + ';">Someone submitted answers to the 100 Experts exercise using this email address. If that wasn’t you, email <a href="mailto:benjamin@proofworks.cc" style="color:' + C.accent + ';text-decoration:underline;">benjamin@proofworks.cc</a>.</p>' +
+'<p style="margin:0;font:400 13px/1.6 ' + SANS + ';color:' + C.inkFaint + ';">Someone submitted answers to an online exercise using this email address. If that wasn’t you, email <a href="mailto:benjamin@proofworks.cc" style="color:' + C.accent + ';text-decoration:underline;">benjamin@proofworks.cc</a>.</p>' +
 '</td></tr>' +
 
 '</table>' + // end shell
