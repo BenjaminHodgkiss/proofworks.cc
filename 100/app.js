@@ -19,6 +19,22 @@
   const cats = (window.PW_CATEGORIES || []).map(c => ({ ...c, color: groupColor(c.group) }));
   const alloc = Object.fromEntries(cats.map(c => [c.id, 0]));
 
+  // Randomise display order on every page load so no field or expert type gets a
+  // fixed-position bias: shuffle the 8 groups, then the expert types. renderCards()
+  // pulls each group's cards via cats.filter (which preserves cats' relative order),
+  // so one shuffle of cats randomises the order within every group. Fisher-Yates;
+  // Math.random() reseeds per load, so each visit reorders afresh. The legend and
+  // dot-grid layout read the same `groups`, so they stay consistent with the cards.
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+  shuffle(groups);
+  shuffle(cats);
+
   // A "field" is a group id (or "custom"); helpers for the hover-card + block layout.
   const fieldColor = key => key === "custom" ? CUSTOM_COLOR : groupColor(key);
   const fieldName  = key => key === "custom" ? "Your additions" : ((groups.find(g => g.id === key) || {}).name || key);
