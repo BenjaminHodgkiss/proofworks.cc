@@ -261,7 +261,7 @@ export function renderConfirmationEmail(input: ConfirmationInput): RenderedEmail
 '<a href="' + esc(confirmUrl || surveyUrl) + '" style="display:inline-block;padding:13px 26px;font:600 15px ' + SANS + ';color:#FCFAF4;border-radius:10px;">' + (confirmUrl ? 'Confirm my submission &rarr;' : 'Adjust your choices &rarr;') + '</a>' +
 '</td></tr></table>' +
 (confirmUrl
-  ? '<p style="margin:16px 0 0;font:400 14px/1.5 ' + SANS + ';color:' + C.inkFaint + ';">Your choices aren’t recorded until you confirm, and the link expires in 7 days. You can revise and resubmit any time; only your most recent confirmed choices are recorded.</p>'
+  ? '<p style="margin:16px 0 0;font:400 14px/1.5 ' + SANS + ';color:' + C.inkFaint + ';">Your choices aren’t recorded until you confirm.</p>'
   : '<p style="margin:16px 0 0;font:400 14px/1.5 ' + SANS + ';color:' + C.inkFaint + ';">Changed your mind? You can revise and resubmit any time; only your most recent confirmed choices are recorded.</p>') +
 '</td></tr>' +
 

@@ -1,6 +1,6 @@
 import { handleCors } from '../_shared/cors.ts'
 import { errorResponse, successResponse } from '../_shared/responses.ts'
-import { getSupabaseClient, getSupabaseUrl } from '../_shared/supabase.ts'
+import { getSupabaseClient } from '../_shared/supabase.ts'
 import { sendEmail } from '../_shared/send-email.ts'
 import { renderConfirmationEmail } from '../_shared/confirmation-email.ts'
 
@@ -14,6 +14,11 @@ const MAX_REASONING = 10000        // chars; matches the DB validate trigger
 const MAX_ENTRIES = 200            // sanity cap on allocation array length
 const TOTAL = 100                  // allocations must sum to exactly this
 const CONFIRM_EXPIRY_DAYS = 7      // how long the email confirmation link stays valid
+
+// Public base for the confirm link emailed to respondents. Inside the deployed
+// function SUPABASE_URL resolves to an internal host (fine for DB calls, wrong for
+// an emailed link), so the project's public Functions URL is set explicitly.
+const PUBLIC_FUNCTIONS_URL = 'https://ekyzrnhoxutcnnqrvszp.supabase.co/functions/v1'
 
 interface Allocation {
   id: string
@@ -166,7 +171,7 @@ Deno.serve(async (req) => {
     // already stored, so a mail failure must never fail the request — log and
     // move on. Run it after the response when the Edge runtime supports it, so
     // the POST isn't held open waiting on Resend.
-    const confirmUrl = `${getSupabaseUrl()}/functions/v1/confirm-submission?token=${confirmationToken}`
+    const confirmUrl = `${PUBLIC_FUNCTIONS_URL}/confirm-submission?token=${confirmationToken}`
     const { subject, html } = renderConfirmationEmail({
       name: cleanName,
       allocations,
