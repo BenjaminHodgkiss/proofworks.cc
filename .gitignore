@@ -1,8 +1,8 @@
 .DS_Store
 node_modules/
 new-documents.json
-proofworks-100/exports/
-proofworks-100/supabase/.temp/
+100/exports/
+100/supabase/.temp/
 
 # Local secrets / env (never commit)
 .env

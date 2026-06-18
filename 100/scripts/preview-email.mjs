@@ -2,7 +2,7 @@
 // review. Writes exports/confirmation-email.html — open it in a browser, or
 // forward it to yourself to check real-client rendering.
 //
-//   node proofworks-100/scripts/preview-email.mjs
+//   node 100/scripts/preview-email.mjs
 //
 // Imports the SAME template the edge function uses (Node 22 strips the TS
 // types on import), so the preview can't drift from what actually ships.

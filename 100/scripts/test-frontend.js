@@ -6,9 +6,9 @@
    the "user submits their 100" journey + key edge cases (§1 of TESTING.md).
    Submits use throwaway @e2e.test emails (clean up after).
 
-   Run:  node proofworks-100/scripts/test-frontend.js
-         BASE_URL=http://localhost:3000/proofworks-100/ (override if needed)
-   Screenshots land in proofworks-100/exports/ (gitignored).
+   Run:  node 100/scripts/test-frontend.js
+         BASE_URL=http://localhost:3000/100/ (override if needed)
+   Screenshots land in 100/exports/ (gitignored).
    ─────────────────────────────────────────────────────────────── */
 const path = require('path');
 const fs = require('fs');
@@ -20,7 +20,7 @@ for (const p of ['playwright', 'playwright-core',
 }
 if (!chromium) { console.error('Could not load Playwright.'); process.exit(1); }
 
-const BASE = process.env.BASE_URL || 'http://localhost:3000/proofworks-100/';
+const BASE = process.env.BASE_URL || 'http://localhost:3000/100/';
 const SHOT_DIR = path.join(__dirname, '..', 'exports');
 fs.mkdirSync(SHOT_DIR, { recursive: true });
 const ts = Date.now();

@@ -28,14 +28,14 @@ The analysis SQL lives one level up, alongside the site's other migrations:
 | `../migrations/100experts_analysis.sql` | Analyst tables (catalog, aliases, respondent weights) + analysis views. |
 | `../migrations/100experts_confirmation.sql` | Double-opt-in confirmation columns + makes the views confirmed-only (run after the two above). |
 
-> **This survey uses its own Supabase project**, separate from the email-notification subscribers. The root `supabase/` directory links to the notification project; this `proofworks-100/supabase/` tree links to the survey project. Always run survey `supabase` commands from inside `proofworks-100/` so the survey's public, service-role function never deploys into the subscriber project.
+> **This survey uses its own Supabase project**, separate from the email-notification subscribers. The root `supabase/` directory links to the notification project; this `100/supabase/` tree links to the survey project. Always run survey `supabase` commands from inside `100/` so the survey's public, service-role function never deploys into the subscriber project.
 
 ## Run it locally (preview)
 
 It works out of the box in **demo mode** (no backend — submits are stubbed locally so you can preview the full flow). Just serve the folder:
 
 ```bash
-cd proofworks-100-experts
+cd 100
 python3 -m http.server 8000
 # open http://localhost:8000
 ```
@@ -46,14 +46,14 @@ python3 -m http.server 8000
 
 1. **Create a dedicated Supabase project** (free) at supabase.com — separate from any other project (e.g. the site's email subscribers).
 2. **SQL Editor → New query →** paste `supabase-setup.sql` → **Run**. Then run `../migrations/100experts_analysis.sql` (analyst tables + analysis views), and `../migrations/100experts_confirmation.sql` (double-opt-in columns + confirmed-only views).
-3. **Deploy the edge functions** — from inside `proofworks-100/` so they target the survey project, not the site's:
+3. **Deploy the edge functions** — from inside `100/` so they target the survey project, not the site's:
    ```bash
-   cd proofworks-100
+   cd 100
    supabase link --project-ref <survey-ref>
    supabase functions deploy submit-experts
    supabase functions deploy confirm-submission
    ```
-4. **Set the function secrets** (from inside `proofworks-100/`):
+4. **Set the function secrets** (from inside `100/`):
    ```bash
    supabase secrets set RESEND_API_KEY=<your-resend-key>             # confirmation email (Resend)
    supabase secrets set TURNSTILE_SECRET_KEY=<your-turnstile-secret> # anti-bot; pairs with the site key in index.html
@@ -61,7 +61,7 @@ python3 -m http.server 8000
    ```
    - **Confirmation email (double-opt-in):** sent via Resend, so this project needs its own `RESEND_API_KEY` (separate from the subscriber project) and `proofworks.cc` verified as a sender domain. Sender is `100 experts exercise <updates@proofworks.cc>`. A submission is stored *unconfirmed* and only counts once the respondent clicks the emailed link (links expire after 7 days). Preview any time with `node scripts/preview-email.mjs`.
    - **Anti-bot:** the submit form carries a Cloudflare Turnstile widget; `submit-experts` verifies it and **fails closed** — with no/invalid `TURNSTILE_SECRET_KEY`, every submit is rejected. Replace the test `data-sitekey` in `index.html` with your real site key; the secret here is its pair. For testing, use Cloudflare's always-pass test pair.
-   - **SURVEY_URL:** defaults to `https://proofworks.cc/100`; set it to wherever the static pages actually serve from (e.g. `…/proofworks-100` pre-rename, or a tunnel during testing) so the confirm/error redirects resolve.
+   - **SURVEY_URL:** defaults to `https://proofworks.cc/100`; set it to wherever the static pages actually serve from (e.g. a tunnel during testing) so the confirm/error redirects resolve.
 5. In **Project Settings → API**, copy the **Project URL** and **anon / public** key.
 6. In `config.js`: set `SUPABASE_URL`, `SUPABASE_ANON_KEY`, and `DEMO_MODE: false`.
 7. **Deploy to GitHub Pages**: drop these files into your Pages repo (e.g. a `/100` folder), commit, push. Visit `proofworks.cc/100`.

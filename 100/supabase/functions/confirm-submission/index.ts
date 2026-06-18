@@ -10,8 +10,7 @@ import { getSupabaseClient } from '../_shared/supabase.ts'
 //
 // SURVEY_URL is where the static result pages live. Defaults to the launch path;
 // override it as a function secret while the survey is served from a different
-// path (e.g. SURVEY_URL=https://proofworks.cc/proofworks-100 pre-rename, or a
-// localhost tunnel during testing).
+// path (e.g. a localhost tunnel during testing).
 const SURVEY_URL = Deno.env.get('SURVEY_URL') || 'https://proofworks.cc/100'
 const OK_PAGE = `${SURVEY_URL}/confirmed.html`
 const ERR_PAGE = `${SURVEY_URL}/confirm-error.html`

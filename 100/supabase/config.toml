@@ -2,7 +2,7 @@
 # This is a SEPARATE Supabase project from the email-notification subscribers
 # (root supabase/ links to that one). Deploy from this directory so the survey's
 # public, service-role function can never land in the subscriber project.
-#   cd proofworks-100 && supabase functions deploy submit-experts --project-ref <survey-ref>
+#   cd 100 && supabase functions deploy submit-experts --project-ref <survey-ref>
 
 [api]
 enabled = true

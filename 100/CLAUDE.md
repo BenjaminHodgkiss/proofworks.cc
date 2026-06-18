@@ -1,6 +1,6 @@
 # CLAUDE.md — 100 Experts sub-project
 
-Guidance for Claude Code when working inside `proofworks-100/`. This **supplements and overrides** the root `../CLAUDE.md`: that file describes the main *site*, and several of its details are wrong for this sub-project (see below). For the full human-facing explanation of the survey, read `README.md` in this folder.
+Guidance for Claude Code when working inside `100/`. This **supplements and overrides** the root `../CLAUDE.md`: that file describes the main *site*, and several of its details are wrong for this sub-project (see below). For the full human-facing explanation of the survey, read `README.md` in this folder.
 
 ## This is a separate project from the site
 
@@ -9,13 +9,13 @@ The 100 Experts survey runs in its **own Supabase project**, isolated from the s
 - **Survey project:** `ekyzrnhoxutcnnqrvszp`
 - **Site / subscribers project:** `jsbmozalhtxnekufeals` (what the root CLAUDE.md refers to — *not* this one)
 
-**ALWAYS run `supabase` commands from inside `proofworks-100/`** (or pass `--project-ref ekyzrnhoxutcnnqrvszp`). A bulk `supabase functions deploy` from the repo root or the wrong directory can push the survey's public, service-role function into the subscriber project. Both are free-tier and auto-pause after ~7 days idle.
+**ALWAYS run `supabase` commands from inside `100/`** (or pass `--project-ref ekyzrnhoxutcnnqrvszp`). A bulk `supabase functions deploy` from the repo root or the wrong directory can push the survey's public, service-role function into the subscriber project. Both are free-tier and auto-pause after ~7 days idle.
 
 ## Commands
 
 ```bash
 # Local preview — the user keeps `npm run dev` (root) running; do not start it.
-# Survey page is at http://localhost:3000/proofworks-100/
+# Survey page is at http://localhost:3000/100/
 
 # Deploy the edge functions (from inside this folder)
 supabase link --project-ref ekyzrnhoxutcnnqrvszp

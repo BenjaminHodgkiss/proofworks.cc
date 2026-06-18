@@ -6,7 +6,7 @@
    per-email cap, append-only) and the RLS/security posture via the anon key.
    Reads SUPABASE_URL + anon key from config.js. Uses throwaway @e2e.test emails.
 
-   Run:    node proofworks-100/scripts/test-backend.js
+   Run:    node 100/scripts/test-backend.js
    Clean:  delete from public.submissions where email like '%@e2e.test';
            (or set SUPABASE_SERVICE_ROLE_KEY and this script self-cleans at the end)
    ─────────────────────────────────────────────────────────────── */

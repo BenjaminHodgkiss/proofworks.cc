@@ -23,11 +23,11 @@ Browser acknowledgement screen ("Thanks — confirm your email")
 
 ## How to run
 
-- **Back-end + security (automated):** `node proofworks-100/scripts/test-backend.js`
+- **Back-end + security (automated):** `node 100/scripts/test-backend.js`
   Reads the URL + anon key from `config.js`. Uses throwaway `@e2e.test` emails.
   Exits non-zero if any check fails.
 - **Front-end (browser):** serve the folder (the dev server already runs at
-  `http://localhost:3000/proofworks-100/`) and walk the cases in §1.
+  `http://localhost:3000/100/`) and walk the cases in §1.
 - **Cleanup:** `delete from public.submissions where email like '%@e2e.test';`
   in the SQL editor (or set `SUPABASE_SERVICE_ROLE_KEY` and the test script
   self-cleans).
