@@ -232,7 +232,7 @@
     // submit gating
     const ready = p === TOTAL;
     submitBtn.disabled = !ready;
-    ctaText.textContent = ready ? "Submit my 100" : (p > TOTAL ? "Remove " + (p - TOTAL) : "Place " + remaining + " more");
+    ctaText.textContent = "Submit my choices";
   }
 
   // Lay the grid out as compact, near-square blocks per field (recursive
@@ -345,7 +345,7 @@
     } catch (err) {
       console.error(err);
       errEl.textContent = "Something went wrong submitting. " + (err.message || "Please try again.");
-      submitBtn.classList.remove("loading"); submitBtn.disabled = false; ctaText.textContent = "Submit my 100";
+      submitBtn.classList.remove("loading"); submitBtn.disabled = false; ctaText.textContent = "Submit my choices";
       // Turnstile tokens are single-use; issue a fresh one for the retry.
       if (window.turnstile) window.turnstile.reset();
     }
