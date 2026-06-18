@@ -156,6 +156,9 @@
       cardsEl.appendChild(makeGroupHead({ id: "custom", name: "Your additions", color: CUSTOM_COLOR }, null));
       custom.forEach(c => cardsEl.appendChild(makeCard(c)));
     }
+    const sep = document.createElement("div");
+    sep.className = "add-sep";
+    cardsEl.appendChild(sep);
     cardsEl.appendChild(addCard());
     renderLegend();
   }
