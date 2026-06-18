@@ -333,7 +333,7 @@
     let turnstileToken = "";
     if (!DEMO) {
       turnstileToken = (window.turnstile && window.turnstile.getResponse()) || "";
-      if (!turnstileToken) { errEl.textContent = "Please complete the verification challenge below the form."; return; }
+      if (!turnstileToken) { errEl.textContent = "Couldn't verify you're human just yet. Please wait a moment and try again."; return; }
     }
 
     submitBtn.classList.add("loading"); submitBtn.disabled = true; ctaText.textContent = "Submitting…";

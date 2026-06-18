@@ -206,12 +206,11 @@ h1 em{font-style:normal;color:var(--accent)}
 .addcard .label{font-family:"Geist Mono",monospace;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint)}
 
 /* ── Submit block ── */
-.submit{margin:40px 0 30px;padding:30px;display:grid;grid-template-columns:1fr 1fr auto;gap:16px;align-items:end}
-/* Stop the fixed-width (~300px) Turnstile widget from forcing every 1fr column
-   to its min-content width — that blew the fields past the panel on mobile.
-   min-width:0 lets the columns shrink; centering keeps the widget tidy. */
+.submit{margin:40px 0 30px;padding:30px;display:grid;grid-template-columns:1fr 1fr auto;gap:16px;align-items:end;overflow:hidden}
+/* The fixed-width (~300px) Turnstile widget otherwise forces every 1fr column to
+   its min-content width, blowing the fields past the panel on mobile. min-width:0
+   lets the columns shrink; overflow:hidden clips any residual overhang. */
 .submit>*{min-width:0}
-.cf-turnstile{display:flex;justify-content:center}
 .field label{display:block;font-family:"Geist Mono",monospace;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:7px}
 .field.full{grid-column:1/-1}
 .field .opt{font-weight:400;color:var(--ink-faint);text-transform:none;letter-spacing:0;font-family:"Hanken Grotesk",sans-serif;margin-left:6px}
@@ -232,6 +231,10 @@ h1 em{font-style:normal;color:var(--accent)}
 .submit .note{grid-column:1/-1;font-size:.82rem;color:var(--ink-faint);margin:0}
 .submit .note a{color:var(--accent)}
 .err{grid-column:1/-1;color:#C0552B;font-size:.88rem;margin:0;min-height:1px}
+/* Turnstile: own full-width row, centred; never widens the form on narrow phones.
+   No-op when the widget is set to Invisible mode (nothing renders inline). */
+.submit .cf-turnstile{grid-column:1/-1;display:flex;justify-content:center;margin:2px 0 0}
+.submit .cf-turnstile:empty{margin:0}
 
 /* ── Done / acknowledgement ── */
 .done{display:none;margin:48px 0 70px}
@@ -258,7 +261,7 @@ footer a{color:var(--ink-soft);text-decoration:none}footer a:hover{color:var(--a
   .gridwrap{grid-template-columns:minmax(0,1fr);gap:24px;padding:22px}
   .dotgrid{width:min(300px,70vw);margin:0 auto}
   .legend .key .item .nm{white-space:normal;overflow:visible;text-overflow:clip}
-  .submit{grid-template-columns:1fr}
+  .submit{grid-template-columns:1fr;padding:24px 20px}
 }
 .hidden{display:none!important}
 </style>
@@ -323,7 +326,7 @@ footer a{color:var(--ink-soft);text-decoration:none}footer a:hover{color:var(--a
          secret key is set as TURNSTILE_SECRET_KEY in the submit-experts function
          env (supabase secrets set ...); it is verified server-side and must never
          be committed. -->
-    <div class="cf-turnstile" data-sitekey="0x4AAAAAADnXeAhSOXdoKmuL" data-appearance="interaction-only" style="margin:.25rem 0;"></div>
+    <div class="cf-turnstile" data-sitekey="0x4AAAAAADnXeAhSOXdoKmuL" data-appearance="interaction-only"></div>
     <button class="cta" id="submit" type="submit" disabled><span class="spin"></span><span id="ctatext">Submit my choices</span></button>
     <p class="err" id="err"></p>
     <p class="note">Your email is never shown publicly or shared, and your individual choices won't be shared with anyone. You will be emailed a link to confirm them, and they only count once you click it. If you submit more than once, only your most recent confirmed choices are kept.</p>
