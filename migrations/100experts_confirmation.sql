@@ -21,9 +21,13 @@ alter table public.submissions add column if not exists confirmed_at timestamptz
 create index if not exists submissions_confirmation_token_idx
   on public.submissions (confirmation_token) where confirmation_token is not null;
 
--- ── 2. Public results view: confirmed-only, latest confirmed per email. ──
+-- ── 2. Allocations view: confirmed-only, latest confirmed per email. ──
+--    PII-free (allocation counts only), but ANALYST-ONLY: security_invoker = on
+--    + revoked from anon. It was anon-readable, but Supabase's advisor flags any
+--    SECURITY DEFINER view as critical, so it's locked down like the other views.
+--    Re-expose a public aggregate only via a deliberately-reviewed mechanism.
 create or replace view public.public_allocations
-  with (security_invoker = false) as          -- runs as owner, bypasses table RLS
+  with (security_invoker = on) as             -- respects caller RLS (no anon read)
   select allocations
   from (
     select distinct on (email) email, allocations, created_at
@@ -32,7 +36,7 @@ create or replace view public.public_allocations
     order by email, created_at desc
   ) latest;
 
-grant select on public.public_allocations to anon;
+revoke all on public.public_allocations from anon, authenticated;
 
 -- ── 3. Analyst base view: confirmed-only (alloc_long / alloc_canonical inherit
 --       this through latest_submissions; same columns, so replace is safe). ──

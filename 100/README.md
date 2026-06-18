@@ -66,7 +66,7 @@ python3 -m http.server 8000
 6. In `config.js`: set `SUPABASE_URL`, `SUPABASE_ANON_KEY`, and `DEMO_MODE: false`.
 7. **Deploy to GitHub Pages**: drop these files into your Pages repo (e.g. a `/100` folder), commit, push. Visit `proofworks.cc/100`.
 
-The anon key is meant to be public. Under row-level security it **cannot read or write the raw table at all**, and the page never reads any submissions back — it only writes. Every write goes through the `submit-experts` edge function (service role), which runs a Turnstile anti-bot check, validates the payload, and stores the row unconfirmed pending email confirmation (replacing any prior pending row for that email). The `public_allocations` view (confirmed entries only, allocation counts, no PII) remains anon-readable for **offline analysis** — the page no longer queries it.
+The anon key is meant to be public. Under row-level security it **cannot read or write the raw table at all**, and the page never reads any submissions back — it only writes. Every write goes through the `submit-experts` edge function (service role), which runs a Turnstile anti-bot check, validates the payload, and stores the row unconfirmed pending email confirmation (replacing any prior pending row for that email). The `public_allocations` view (confirmed entries only, allocation counts, no PII) is analyst-only (service-role); the page never queries it, and the anon key cannot read it.
 
 ## How the data is organised (keep-latest)
 
