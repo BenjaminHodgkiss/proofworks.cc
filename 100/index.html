@@ -207,6 +207,11 @@ h1 em{font-style:normal;color:var(--accent)}
 
 /* ── Submit block ── */
 .submit{margin:40px 0 30px;padding:30px;display:grid;grid-template-columns:1fr 1fr auto;gap:16px;align-items:end}
+/* Stop the fixed-width (~300px) Turnstile widget from forcing every 1fr column
+   to its min-content width — that blew the fields past the panel on mobile.
+   min-width:0 lets the columns shrink; centering keeps the widget tidy. */
+.submit>*{min-width:0}
+.cf-turnstile{display:flex;justify-content:center}
 .field label{display:block;font-family:"Geist Mono",monospace;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:7px}
 .field.full{grid-column:1/-1}
 .field .opt{font-weight:400;color:var(--ink-faint);text-transform:none;letter-spacing:0;font-family:"Hanken Grotesk",sans-serif;margin-left:6px}
