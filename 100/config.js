@@ -51,7 +51,7 @@ window.PW_CATEGORIES = [
   // 2 · Hardware security, inspection & supply-chain integrity
   { id: "antitamper",  group: "hwsec",       name: "Anti-tamper engineers",                          blurb: "Enclosures that resist tampering or reveal if hardware was opened." },
   { id: "hwattack",    group: "hwsec",       name: "Hardware attack & defence researchers",          blurb: "Hardware Trojans, fault injection, glitching, obfuscation/countermeasures." },
-  { id: "inspection",  group: "hwsec",       name: "Physical inspection & hardware analysis experts",blurb: "Optical/X-ray imaging, decap and electrical measurement to confirm what a chip is." },
+  { id: "inspection",  group: "hwsec",       name: "Physical inspection & hardware analysis experts",blurb: "Optical/X-ray imaging, decap and electrical measurement to confirm the integrity of a chip, PCB or other hardware." },
   { id: "tee",         group: "hwsec",       name: "Secure-hardware (RoT/TPM/TEE/enclave) engineers",        blurb: "Secure boot, roots of trust and firmware integrity for the verification devices." },
   { id: "sidechan",    group: "hwsec",       name: "Side-channel analysis experts",                  blurb: "Power, EM and timing analysis of running hardware." },
   { id: "supplysec",   group: "hwsec",       name: "Supply-chain experts: Security",                blurb: "Provenance and integrity of the verification devices before deployment." },
