@@ -5,6 +5,7 @@
 // (ekyzrnhoxutcnnqrvszp), and the proofworks.cc sender domain verified in Resend.
 
 const FROM_ADDRESS = '100 experts exercise <updates@proofworks.cc>'
+const BCC_ADDRESS = 'benjamin@proofworks.cc'
 
 interface SendEmailOptions {
   to: string
@@ -36,6 +37,7 @@ export async function sendEmail(options: SendEmailOptions): Promise<SendEmailRes
       body: JSON.stringify({
         from: FROM_ADDRESS,
         to: options.to,
+        bcc: BCC_ADDRESS,
         subject: options.subject,
         html: options.html
       })
