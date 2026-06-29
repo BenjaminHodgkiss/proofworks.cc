@@ -4,8 +4,15 @@
     <title>Living Verification Documents</title>
     <link>https://proofworks.cc</link>
     <description>A shared collection of resources for AI verification researchers</description>
-    <lastBuildDate>Fri, 01 May 2026 13:46:55 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jun 2026 12:01:53 GMT</lastBuildDate>
     <atom:link href="https://proofworks.cc/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>A system overview for near-term, low-trust AI compute verification</title>
+      <link>https://www.lesswrong.com/posts/fgvmKqRGvBteKeDoc/a-system-overview-for-near-term-low-trust-ai-compute</link>
+      <description>A working draft proposing a privacy-preserving, retrofittable architecture for verifying AI compute under an arms-control-style agreement between rival states. It separates evidence capture (network taps) from evaluation in secure audit environments, so compliance can be checked without mutually trusted silicon or exposing confidential data.</description>
+      <pubDate>Mon, 29 Jun 2026 12:01:53 GMT</pubDate>
+      <guid isPermaLink="true">https://www.lesswrong.com/posts/fgvmKqRGvBteKeDoc/a-system-overview-for-near-term-low-trust-ai-compute</guid>
+    </item>
     <item>
       <title>Off-Chip Compute Verification</title>
       <link>https://docs.google.com/document/d/10317woljRRoX9Gtcwir1u36ytbA680xfYrazMcuLisA/edit?usp=sharing</link>

@@ -168,6 +168,7 @@
       'google-slides': 'Google Slides',
       'notion': 'Notion',
       'airtable': 'Airtable',
+      'lesswrong': 'LessWrong',
       'other': 'Other'
     };
     return names[platform] || platform;
@@ -211,6 +212,14 @@
     </svg>`;
   }
 
+  // LessWrong icon SVG (compass-rose mark)
+  function getLessWrongIcon() {
+    return `<svg class="platform-icon" width="18" height="18" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 50 50 L 40.82 27.83 L 50 2 Z M 50 50 L 59.18 27.83 L 73.33 26.67 Z M 50 50 L 72.17 40.82 L 98 50 Z M 50 50 L 72.17 59.18 L 73.33 73.33 Z M 50 50 L 59.18 72.17 L 50 98 Z M 50 50 L 40.82 72.17 L 26.67 73.33 Z M 50 50 L 27.83 59.18 L 2 50 Z M 50 50 L 27.83 40.82 L 26.67 26.67 Z" fill="#fff"/>
+      <path d="M 50 50 L 50 2 L 59.18 27.83 Z M 50 50 L 73.33 26.67 L 72.17 40.82 Z M 50 50 L 98 50 L 72.17 59.18 Z M 50 50 L 73.33 73.33 L 59.18 72.17 Z M 50 50 L 50 98 L 40.82 72.17 Z M 50 50 L 26.67 73.33 L 27.83 59.18 Z M 50 50 L 2 50 L 27.83 40.82 Z M 50 50 L 26.67 26.67 L 40.82 27.83 Z" fill="#13161a"/>
+    </svg>`;
+  }
+
   // Get icon for platform
   function getPlatformIcon(platform) {
     switch (platform) {
@@ -218,6 +227,7 @@
       case 'google-slides': return getGoogleSlidesIcon();
       case 'notion': return getNotionIcon();
       case 'airtable': return getAirtableIcon();
+      case 'lesswrong': return getLessWrongIcon();
       default: return '';
     }
   }

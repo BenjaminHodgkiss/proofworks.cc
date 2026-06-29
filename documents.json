@@ -1,5 +1,21 @@
 [
   {
+    "title": "A system overview for near-term, low-trust AI compute verification",
+    "url": "https://www.lesswrong.com/posts/fgvmKqRGvBteKeDoc/a-system-overview-for-near-term-low-trust-ai-compute",
+    "platform": "lesswrong",
+    "author": "Naci Cankaya",
+    "description": "A working draft proposing a privacy-preserving, retrofittable architecture for verifying AI compute under an arms-control-style agreement between rival states. It separates evidence capture (network taps) from evaluation in secure audit environments, so compliance can be checked without mutually trusted silicon or exposing confidential data.",
+    "tags": [
+      "hardware",
+      "software",
+      "technical-paper",
+      "explainer",
+      "strategy"
+    ],
+    "order": 280,
+    "date_added": "2026-06-29T12:35:04.950Z"
+  },
+  {
     "title": "Off-Chip Compute Verification",
     "url": "https://docs.google.com/document/d/10317woljRRoX9Gtcwir1u36ytbA680xfYrazMcuLisA/edit?usp=sharing",
     "platform": "google-docs",
